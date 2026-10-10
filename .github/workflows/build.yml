@@ -48,5 +48,5 @@ jobs:
         name: HideLineageOS.zip
         # Using a wildcard to catch the APK whether your build.gradle 
         # is in the root directory or inside an 'app/' module directory
-        path: '/build/outputs/apk/release/*.apk'
+        path: '**/build/outputs/apk/release/*.apk'
         if-no-files-found: error
