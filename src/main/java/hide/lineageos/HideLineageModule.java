@@ -1,4 +1,4 @@
-package hide.lineageos;
+package lineageos.hide;
 
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -211,10 +211,10 @@ public class HideLineageModule implements IXposedHookLoadPackage {
         tryHook("SM.listServices(int)", () ->
             XposedHelpers.findAndHookMethod(SM, cl, "listServices", int.class,
                 new XC_MethodHook() {
-                    @Override
-                    protected void afterHookedMethod(MethodHookParam p) {
-                        p.setResult(filterServices((String[]) p.getResult()));
-                    }
+                @Override
+                protected void afterHookedMethod(MethodHookParam p) {
+                    p.setResult(filterServices((String[]) p.getResult()));
+                }
                 })
         );
     }

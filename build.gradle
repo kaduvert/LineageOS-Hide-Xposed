@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    namespace 'hide.lineageos' 
+    namespace 'lineageos.hide' 
     
     compileSdk 34
 
     defaultConfig {
-        applicationId "hide.lineageos"
+        applicationId "lineageos.hide"
         minSdk 28
         targetSdk 34
         versionCode 1
