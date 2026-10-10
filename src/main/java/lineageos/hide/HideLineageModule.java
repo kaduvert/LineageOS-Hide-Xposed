@@ -167,7 +167,6 @@ public class HideLineageModule implements IXposedHookLoadPackage {
     //    getService(String)    blocks until the service is ready; returns IBinder
     //    checkService(String)  non-blocking variant; returns null if absent
     //    listServices()        returns String[] of every registered service name
-    //    listServices(int)     API-30+ overload; int is a dumpPriority filter
     //
     //  Strategy:
     //    getService / checkService  → beforeHook: return null immediately
@@ -204,17 +203,6 @@ public class HideLineageModule implements IXposedHookLoadPackage {
                     protected void afterHookedMethod(MethodHookParam p) {
                         p.setResult(filterServices((String[]) p.getResult()));
                     }
-                })
-        );
-
-        // API 30+ overload
-        tryHook("SM.listServices(int)", () ->
-            XposedHelpers.findAndHookMethod(SM, cl, "listServices", int.class,
-                new XC_MethodHook() {
-                @Override
-                protected void afterHookedMethod(MethodHookParam p) {
-                    p.setResult(filterServices((String[]) p.getResult()));
-                }
                 })
         );
     }
