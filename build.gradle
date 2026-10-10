@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.application' version '8.3.2' 
+}
+
+android {
+    namespace 'hide.lineageos' 
+    
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "hide.lineageos"
+        minSdk 28
+        targetSdk 34
+        versionCode 1
+        versionName "0.0.1"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("my-release-key.jks")
+            storePassword "000000"
+            keyAlias "hidelineage-key"
+            keyPassword "000000"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false // don't shrink — Xposed needs stable class names
+        }
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    compileOnly("com.github.deltazefiro:XposedBridge:3137dcc")
+}
