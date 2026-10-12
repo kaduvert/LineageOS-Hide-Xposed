@@ -1,4 +1,6 @@
-# LineageOS Hide
+# LineageOS Hide (Xposed)
+
+ts sucks btw, check https://github.com/kaduvert/LineageOS-Hide
 
 check actions for release apk
 
@@ -10,3 +12,4 @@ They probably own the copyright to the name LineageOS.
 This repository only contains the string "lineageos" or "LineageOS" for reference, it has nothing to do with being actually a partner or similar of any kind.
 
 ### This is not an official LineageOS product
+
